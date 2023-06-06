@@ -1,0 +1,20 @@
+/*Creación base de datos*/
+CREATE DATABASE konecta;
+use konecta;
+
+/*Creación de tablas*/
+create table empleado (id int not null primary key auto_increment, 
+fecha_ingreso varchar(50), 
+nombre varchar(50),  
+salario int);
+
+create table solicitud (id int not null primary key auto_increment, 
+codigo varchar(50), 
+descripcion varchar(50), 
+resumen varchar(50), 
+id_empleado int,
+FOREIGN KEY (id_empleado) REFERENCES empleado(id));
+
+/*Inserción de datos para prueba inicial*/ 
+insert into empleado (fecha_ingreso, nombre, salario) values ("20230605", "Alex", 3500000); 
+insert into solicitud (codigo, descripcion, resumen, id_empleado) values (1,"Prueba de descripcion", "Prueba de resumen", 1);
